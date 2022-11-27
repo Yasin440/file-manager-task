@@ -16,7 +16,7 @@ function App() {
       <div className="folderSection">
         {!data && <span>Loading...</span>}
         {data?.map((item, index) => (
-          <FolderManager key={index} item={item} setLoading={setLoading} />
+          <FolderManager key={index} item={item} setLoading={setLoading} loading={loading} />
         ))}
       </div>
     </div>

@@ -6,7 +6,7 @@ import closedFolder from '../img/folder.png';
 import openFolder from '../img/open-folder.png';
 import FolderModal from '../component/FolderModal';
 
-const FolderManager = ({ item, setLoading }) => {
+const FolderManager = ({ item, setLoading, loading }) => {
     const { name, child, status } = item;
     const [showChild, setShowChild] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -47,11 +47,11 @@ const FolderManager = ({ item, setLoading }) => {
                 />
                 {showModal &&
                     <FolderModal
-                        props={{ item, setShowModal, isDelete, setIsDelete, setLoading }}
+                        props={{ item, setShowModal, isDelete, setIsDelete, setLoading, loading }}
                     />}
             </div>
             <div style={{ marginLeft: 50 }}>
-                {showChild && child.length > 0 && child?.map((item, index) => <FolderManager key={index} item={item} setLoading={setLoading} />)}
+                {showChild && child.length > 0 && child?.map((item, index) => <FolderManager key={index} item={item} setLoading={setLoading} loading={loading} />)}
             </div>
         </div >
     )

@@ -1,7 +1,8 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const FolderModal = ({ props }) => {
-    const { item, setShowModal, isDelete, setIsDelete, setLoading } = props;
+    const { item, setShowModal, isDelete, setIsDelete, setLoading, loading } = props;
     // console.log("setLoading", setLoading);
     // console.log("setIsDelete", setIsDelete);
     let data = {}
@@ -28,6 +29,9 @@ const FolderModal = ({ props }) => {
                 if (data.acknowledged) {
                     setLoading(false);
                     setShowModal(false);
+                    toast.success(`${item.name} Added Successfully`, {
+                        theme: 'colored'
+                    })
                 }
             })
     }
@@ -49,6 +53,9 @@ const FolderModal = ({ props }) => {
                     if (data.deletedCount > 0) {
                         setLoading(false);
                         setShowModal(false);
+                        toast.success(`${item.name} Deleted Successfully`, {
+                            theme: 'colored'
+                        });
                     }
                 })
         }
@@ -83,8 +90,8 @@ const FolderModal = ({ props }) => {
                             name="name"
                             id="" />
                         <div style={{ marginBottom: '30px' }}>
-                            <button onClick={handleCancel} className='actionBtn cancel'>Cancel</button>
-                            <button type='submit' className='actionBtn create'><span>Create</span></button>
+                            <button disabled={!loading && 'true'} onClick={handleCancel} className='actionBtn cancel'>Cancel</button>
+                            <button disabled={loading && 'true'} type='submit' className='actionBtn create'><span>Create</span></button>
                         </div>
                         <span onClick={() => setShowModal(false)} className='cross'>x</span>
                     </form>
