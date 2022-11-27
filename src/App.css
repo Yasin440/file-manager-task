@@ -1,38 +1,143 @@
-.App {
+.title {
+  color: tomato;
+  font-family: cursive;
+  width: fit-content;
+  padding: 12px 80px;
+  background-color: antiquewhite;
+  border-radius: 2rem;
+}
+
+.folderSection {
+  width: 60%;
+  margin: 20px auto;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+}
+
+.showBtn {
+  padding: 2px 8px;
+}
+
+.showBtn img {
+  width: 12px;
+  transition: .3s all;
+
+}
+
+.deleteBtn,
+.addBtn {
+  width: 22px;
+  cursor: pointer;
+  transition: .3s all;
+  margin-left: 10px;
+}
+
+.addBtn:hover,
+.deleteBtn:hover {
+  transform: scale(1.2);
+}
+
+.childShowed {
+  transform: rotate(90deg);
+}
+
+.folder {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.folderName {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-family: cursive;
+  transition: .3s all;
+}
+
+.folderIcon {
+  width: 22px;
+  margin-right: 8px;
+}
+
+/* //modal css start// */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #8080805c;
+}
+
+.modalContainer {
+  text-align: center;
+  width: 600px;
+  background-color: #FFF;
+  height: fit-content;
+  border-radius: 10px;
+  border: 1px solid tomato;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputControl {
+  margin: 30px 0;
+  padding: 10px 15px;
+  width: 60%;
+  border-radius: 5px;
+  border: none;
+  background-color: #e7e7e7;
+  font-size: 18px;
+  color: tomato;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.actionBtn {
+  margin: 0 8px;
+  font-size: 16px;
+  border: navajowhite;
+  padding: 7px 22px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .2s all;
+  color: white
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.actionBtn:hover {
+  transform: scale(.95);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cancel,
+.delete {
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
-.App-link {
-  color: #61dafb;
+.create,
+.cancelDelete {
+  background-color: rgba(0, 0, 255, 0.7);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cross {
+  color: gray;
+  transition: .3s all;
+  padding: 0 7px;
+  font-size: 24px;
+  position: absolute;
+  top: 4px;
+  cursor: pointer;
+  right: 8px;
+}
+
+.cross:hover {
+  color: rgb(255, 0, 0, .7);
 }
